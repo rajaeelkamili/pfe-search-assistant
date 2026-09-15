@@ -1,0 +1,43 @@
+{
+  "name": "Rajae Elkamili",
+  "education": "Final-year Engineering student (ISIC) at ENSA El Jadida, graduating 2027",
+  "target_role": "AI/ML Engineering, PFE 2027 (final-year internship)",
+  "skills": {
+    "ai_ml": ["Python", "PyTorch", "TensorFlow/Keras", "scikit-learn", "LangChain",
+               "RAG", "Agentic AI", "LLMs", "Prompt Engineering", "MLflow", "FastAPI",
+               "CNN", "LSTM", "Deep Learning", "Machine Learning", "Data Preprocessing"],
+    "web_backend": ["FastAPI", "Spring Boot", "PHP", "MySQL", "Node.js", "REST API"],
+    "mobile": ["Flutter", "React Native", "Android"],
+    "cybersecurity": ["Incident Response", "Ransomware Analysis", "Network Security"],
+    "tools": ["Git", "Docker", "Linux", "VS Code", "Android Studio"],
+    "databases": ["MySQL", "Oracle", "SQLite", "MongoDB", "PostgreSQL"],
+    "languages": ["Arabic (native)", "French (C1)", "English (C1)"]
+  },
+  "experience": [
+    {
+      "role": "Generative AI & Software Engineering Intern",
+      "company": "OCP Group",
+      "dates": "Jun-Aug 2026",
+      "summary": "Built a multi-function agentic co-pilot for industrial plant operators combining RAG-based document retrieval, HSE checklist generation, and incident report compilation. Hybrid retrieval (ChromaDB + BM25) with Qwen2.5 3B. Delivered end-to-end: FastAPI backend, React/Vite frontend, Docker Compose."
+    },
+    {
+      "role": "Cybersecurity Intern",
+      "company": "SONASID",
+      "dates": "Jul-Aug 2025",
+      "summary": "Studied ransomware attacks in industrial environments, simulated an attack in a controlled lab, evaluated prevention mechanisms, designed an Incident Response Plan."
+    }
+  ],
+  "certifications": [
+    "AWS Generative AI Foundations", "AWS Machine Learning for NLP",
+    "AWS Machine Learning Foundations", "AWS Engineering Operations Technicians",
+    "AWS Cloud Foundations", "Cisco Introduction to Modern AI", "Cisco Introduction to Cybersecurity"
+  ],
+  "projects": [
+    "Co-pilote Agentique JFC4 (agentic RAG co-pilot, OCP internship)",
+    "RAG & Agentic AI with LangChain (hybrid retrieval + tool-calling agent)",
+    "Sentiment LSTM Classifier (bidirectional LSTM, documented overfitting/early stopping)",
+    "Digits CNN Classifier (CNN from scratch in PyTorch)",
+    "Titanic Survival Classifier (classic ML, stratified evaluation)",
+    "MLOps Digits Deployment (MLflow tracking, FastAPI serving, Docker)"
+  ]
+}
