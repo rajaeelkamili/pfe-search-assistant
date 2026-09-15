@@ -1,0 +1,9 @@
+langchain
+langchain-community
+langchain-classic
+langchain-ollama
+faiss-cpu
+rank_bm25
+scikit-learn
+fastapi
+uvicorn
