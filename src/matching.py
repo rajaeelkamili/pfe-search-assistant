@@ -34,7 +34,8 @@ def extract_keywords(text):
     de 2+ caractères, en minuscule, sans ponctuation. Gère les accents français."""
     text = text.lower()
     words = re.findall(r"[a-zà-ÿ][a-zà-ÿ0-9\+\#\.]{2,}", text)
-    return set(words)
+    # retire la ponctuation finale collée au mot ("appréciée." -> "appréciée")
+    return {w.rstrip(".") for w in words if len(w.rstrip(".")) > 2}
 
 
 def analyze_match(job_description, profile):
@@ -59,13 +60,28 @@ def analyze_match(job_description, profile):
     # 2. Mots-clés de l'offre qui ne sont couverts par AUCUNE compétence du profil
     # (utile pour repérer les vraies lacunes, pas du bruit)
     profile_text = " ".join(skills).lower()
+    # comparaison mot par mot (et non par sous-chaîne) pour éviter les faux "couverts"
+    profile_words = set(re.findall(r"[a-zà-ÿ0-9\+\#\.]+", profile_text))
     french_stopwords = {"stage", "pfe", "entreprise", "avec", "pour", "dans", "notre",
                           "vous", "nous", "sera", "une", "des", "les", "sur", "aux",
                           "amené", "être", "atout", "appréciée", "connaissance",
-                          "distribués", "systèmes", "équipe", "travaillerez", "recherchons"}
+                          "distribués", "systèmes", "équipe", "travaillerez", "recherchons",
+                          "plus", "serez", "ainsi", "que", "qui", "est", "sont", "cette",
+                          "ces", "leur", "leurs", "chez", "vers", "dont", "mais", "tout",
+                          "tous", "très", "afin", "lors", "peut", "avoir", "faire",
+                          "expérience", "projets", "outils", "modèles", "collaborer",
+                          "rejoindre", "utilisant", "stagiaire", "déployer", "production",
+                          "the", "and", "for", "with", "you", "our", "will", "are",
+                          "have", "from", "your", "team", "work", "working", "experience",
+                          "knowledge", "skills", "ability", "strong", "plus",
+                          # mots génériques qui ne sont pas des compétences techniques
+                          "expériences", "frameworks", "framework", "science", "data",
+                          "données", "tracking", "computer", "vision", "développement",
+                          "gestion", "analyse", "solutions", "mission", "missions",
+                          "profil", "poste", "candidat", "niveau", "bonne", "bonnes"}
     tech_terms_in_job = [
         w for w in job_keywords
-        if len(w) > 3 and w not in profile_text
+        if len(w) > 3 and w not in profile_words
         and w not in french_stopwords
     ]
 
